@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" th:href="@{/static/asserts/img/astrisk.ico}">
+    <link rel="bookmark" th:href="@{/static/asserts/img/astrisk.ico}">
+</head>
+<body>
+<h1>thymeleaf</h1>
+<h2 th:text="${hello}"></h2>
+<span th:text="${#locale.country}"></span>
+<hr/>
+<div th:text="${hello}"></div>
+<div th:utext="${hello}"></div>
+<hr/>
+<h3 th:text="${list}"></h3>
+<div th:each="item:${list}">
+    <span>[[${item}]]</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" th:href="@{/static/asserts/img/astrisk.ico}">
+    <link rel="bookmark" th:href="@{/static/asserts/img/astrisk.ico}">
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/login.css}">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="form-horizontal">
+        <img class="img-fluid" th:src="@{/asserts/img/Github.svg}" alt="get">
+    </div>
+        <h4 th:text="#{login.tip}" > Sign up for more info</h4>
+    <div class="login-form">
+        <form method="post" action="login" id="login01">
+            <div class="form-group">
+                <label th:text="#{login.username}">
+                    Username or email address
+                </label>
+                <input type="text" name="username" id="username" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus">
+            </div>
+            <div class="form-group">
+                <label th:text="#{login.password}">
+                    Password
+                </label>
+                <input type="text" name="password" id="password" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus">
+            </div>
+
+            <div class="form-group">
+                <label >
+<!--                <input type="button" id="submit1" onclick="validatePassword()" name="commit" value="Sign in" tabindex="3" class="btn btn-success btn-block" />-->
+                    <button type="submit" class="btn btn-success btn-block" id="submit1" name="commit" th:text="#{login.btn}">Sign in</button>
+                </label>
+            </div>
+            <div class="">
+                <div id="loginInfo"></div>
+            </div>
+                <a class="btn btn-sm" th:text="#{login.register}"></a>
+             <a  class="btn btn-sm" th:href="@{/login.html(language='zh_CN')}">中文</a>
+            <a  class="btn btn-sm" th:href="@{/login.html(language='en_US')}">English</a>
+        </form>
+    </div>
+    <script type="text/javascript">
+        // function validatePassword() {
+        //     var username = $("#username").val();
+        //     var password = $("#password").val();
+        //     if (username == "")
+        //     {
+        //         $("#loginInfo").html("<b style='font-size: 15px;color: red'>用户名不能为空</b>")
+        //         $("#username").focus();
+        //         return ;
+        //     }
+        //     if (password == "")
+        //     {
+        //         $("#loginInfo").html("<b style='font-size: 15px;color: red'>密码不能为空</b>");
+        //         $("#password").focus();
+        //         return ;
+        //     }
+        //     $.ajax({
+        //         type : "GET",
+        //         url : "validatePassword",
+        //         data : {
+        //             username : username,
+        //             password : password
+        //         },
+        //         async : true,
+        //         success : function (data) {
+        //             if (password == data)
+        //             {
+        //                 /此处获取的元素id应该是form表单，而不是Sign in 按钮*/
+        //                 $("#login01").submit();
+        //             }
+        //             else
+        //             {
+        //                 $("#loginInfo").html("<b style='font-size: 15px;color: red'>密码或密码错误</b>");
+        //             }
+        //         }
+        //     })
+        // }
+    </script>
+
+</div>
+
+</body>
+
+</html>
