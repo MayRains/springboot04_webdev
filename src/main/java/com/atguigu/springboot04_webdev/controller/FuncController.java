@@ -8,7 +8,6 @@ import java.util.Map;
 
 @Controller
 public class FuncController {
-
 //    如果要查询一些数据
     @RequestMapping("/roundDance")
     public String testThymeleaf(Map<String,Object> map){

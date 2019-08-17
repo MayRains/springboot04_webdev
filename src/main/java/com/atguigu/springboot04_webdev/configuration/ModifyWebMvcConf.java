@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -27,7 +28,9 @@ public class ModifyWebMvcConf implements WebMvcConfigurer {
         // it means that client sends the 'goLogin' request and browser responses with 'login.html'
         // registry.addViewController("/goLogin").setStatusCode(HttpStatus.valueOf(201)).setViewName("login");
         registry.addViewController("/").setViewName("login");
-        registry.addViewController("/login.html").setViewName("login");
+//        registry.addViewController("/login.html").setViewName("login");
+        registry.addViewController("/index.html").setViewName("login");
+        registry.addViewController("/main.html").setViewName("dashboard");
     }
 
     @Bean
@@ -54,11 +57,13 @@ public class ModifyWebMvcConf implements WebMvcConfigurer {
         }
     }
 
-
-
-
-
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/", "/user/login", "/index.html")
+                .excludePathPatterns("/asserts/**", "/webjars/**");
     }
+}
 
 
 
